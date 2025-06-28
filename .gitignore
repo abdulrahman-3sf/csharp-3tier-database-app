@@ -1,0 +1,42 @@
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# VS Code settings
+.vscode/
+
+# VS folders
+.vs/
+
+# Build log
+*.log
+
+# NuGet packages
+*.nupkg
+*.snupkg
+packages/
+*.nuspec
+
+# Ignore ReSharper
+_ReSharper*/
+*.DotSettings.user
+
+# Rider
+.idea/
+
+# Temporary files
+*.tmp
+*.bak
+
+# Auto-generated files
+Generated_Code/
+
+# Others
+Thumbs.db
+*.DS_Store
