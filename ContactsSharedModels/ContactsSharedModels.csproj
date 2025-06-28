@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FF8B616D-6856-4ED5-B166-84AB19C250C4}</ProjectGuid>
+    <ProjectGuid>{3BD884FF-8588-46A3-B330-727FC44E4B5F}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ContactsBusinessLayer</RootNamespace>
-    <AssemblyName>ContactsBusinessLayer</AssemblyName>
+    <RootNamespace>ContactsSharedModels</RootNamespace>
+    <AssemblyName>ContactsSharedModels</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <OutputType>Library</OutputType>
     <FileAlignment>512</FileAlignment>
@@ -49,16 +49,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ContactsDataAccessLayer\ContactsDataAccessLayer.csproj">
-      <Project>{8450a536-2fb2-4668-94e6-329e53b62eed}</Project>
-      <Name>ContactsDataAccessLayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ContactsSharedModels\ContactsSharedModels.csproj">
-      <Project>{3bd884ff-8588-46a3-b330-727fc44e4b5f}</Project>
-      <Name>ContactsSharedModels</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

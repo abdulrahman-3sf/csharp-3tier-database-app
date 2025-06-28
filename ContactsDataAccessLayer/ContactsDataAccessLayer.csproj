@@ -9,6 +9,7 @@
     <RootNamespace>ContactsDataAccessLayer</RootNamespace>
     <AssemblyName>ContactsDataAccessLayer</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <OutputType>Library</OutputType>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -48,6 +49,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ContactsSharedModels\ContactsSharedModels.csproj">
+      <Project>{3bd884ff-8588-46a3-b330-727fc44e4b5f}</Project>
+      <Name>ContactsSharedModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
