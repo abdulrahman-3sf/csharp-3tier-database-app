@@ -46,10 +46,10 @@ namespace ContactsBusinessLayer
             return (ID != -1);
         }
 
-        //private bool _updateCountry()
-        //{
-        //    return true;
-        //}
+        private bool _updateCountry()
+        {
+            return clsCountryDataAccess.updateCountry(ID, countryName);
+        }
 
         public bool save()
         {
@@ -65,8 +65,8 @@ namespace ContactsBusinessLayer
                         return false;
                     }
 
-                //case enMode.update:
-                //    return _updateCountry();
+                case enMode.update:
+                    return _updateCountry();
 
                 default:
                     return false;

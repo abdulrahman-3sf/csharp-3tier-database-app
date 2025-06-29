@@ -78,5 +78,36 @@ namespace ContactsDataAccessLayer
 
             return countryID;
         }
+
+        public static bool updateCountry(int ID, string countryName)
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
+
+            string query = @"update Countries
+                             set countryName = @countryName
+                             where countryID = @countryID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@countryName", countryName);
+            command.Parameters.AddWithValue("@countryID", ID);
+
+            int rowsAffected = 0;
+
+            try
+            {
+                connection.Open();
+                rowsAffected = command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                // Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return (rowsAffected > 0);
+        }
     }
 }

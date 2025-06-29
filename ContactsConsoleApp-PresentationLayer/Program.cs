@@ -119,7 +119,23 @@ namespace ContactsConsoleApp_PresentationLayer
             country.countryName = "Saudi Arabia";
 
             if (country.save())
-                Console.WriteLine("Contact Added SUCCESSFULLY! with ID: " + country.ID);
+                Console.WriteLine("Country Added SUCCESSFULLY! with ID: " + country.ID);
+        }
+
+        static void testUpdateCountry(int ID)
+        {
+            clsCountry country = clsCountry.find(ID);
+
+            if (country != null)
+            {
+                country.countryName = "Syria";
+
+                if (country.save())
+                    Console.WriteLine("Contact Updated SUCCESSFULLY! with ID: " + country.ID);
+            } else
+            {
+                Console.WriteLine("There is no Country with this ID!");
+            }
         }
 
         static void Main(string[] args)
@@ -134,7 +150,8 @@ namespace ContactsConsoleApp_PresentationLayer
 
             // Country
             // testFindCountry(44);
-            testAddCountry();
+            // testAddCountry();
+            testUpdateCountry(3);
         }
     }
 }
