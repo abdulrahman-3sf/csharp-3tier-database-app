@@ -27,9 +27,29 @@ namespace ContactsConsoleApp_PresentationLayer
             }
         }
 
+        static void testAddNewContact()
+        {
+            clsContact contact1 = new clsContact();
+
+            contact1.firstName = "Omar";
+            contact1.lastName = "Zaher";
+            contact1.email = "OmarZZZ@gmail.com";
+            contact1.phone = "909090909090909";
+            contact1.address = "666 Streat";
+            contact1.dateOfBirth = new DateTime(1999, 1, 1, 0, 0, 0);
+            contact1.countryID = 3;
+            contact1.imagePath = "";
+
+            if (contact1.save())
+            {
+                Console.WriteLine("Contact Added SUCCESSFULLY! with ID: " + contact1.ID);
+            }
+        }
+
         static void Main(string[] args)
         {
-            testFindContact(4);
+            // testFindContact(4);
+            testAddNewContact();
         }
     }
 }

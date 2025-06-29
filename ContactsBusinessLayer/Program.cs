@@ -34,7 +34,7 @@ namespace ContactsBusinessLayer
             mode = enMode.addNew;
         }
 
-        public clsContact(int ID, stContactInfoWithoutID contactInfo)
+        private clsContact(int ID, stContactInfoWithoutID contactInfo)
         {
             this.ID = ID;
             this.firstName = contactInfo.firstName;
@@ -48,6 +48,36 @@ namespace ContactsBusinessLayer
             mode = enMode.update;
         }
 
+        private static stContactInfoWithoutID convertContactClassToStruct(clsContact classContactInfo)
+        {
+            stContactInfoWithoutID structContactInfo = new stContactInfoWithoutID();
+
+            structContactInfo.firstName = classContactInfo.firstName;
+            structContactInfo.lastName = classContactInfo.lastName;
+            structContactInfo.email = classContactInfo.email;
+            structContactInfo.phone = classContactInfo.phone;
+            structContactInfo.address = classContactInfo.address;
+            structContactInfo.dateOfBirth = classContactInfo.dateOfBirth;
+            structContactInfo.countryID = classContactInfo.countryID;
+            structContactInfo.imagePath = classContactInfo.imagePath;
+
+            return structContactInfo;
+        }
+
+        private bool _addNewContact()
+        {
+            stContactInfoWithoutID contactInfo = convertContactClassToStruct(this);
+
+            ID = clsContactDataAccess.addNewContact(ref contactInfo);
+
+            return (ID != -1);
+        }
+
+        //private bool _update()
+        //{
+        //    return true;
+        //}
+
         public static clsContact find(int ID)
         {
             stContactInfoWithoutID contactInfo = new stContactInfoWithoutID();
@@ -56,6 +86,28 @@ namespace ContactsBusinessLayer
                 return new clsContact(ID, contactInfo);
             else
                 return null;
+        }
+
+        public bool save()
+        {
+            switch (mode)
+            {
+                case enMode.addNew:
+                    if (_addNewContact())
+                    {
+                        mode = enMode.update;
+                        return true;
+                    } else
+                    {
+                        return false;
+                    }
+
+                //case enMode.update:
+                //    return _update();
+
+                default:
+                    return true;
+            }
         }
     }
 }
