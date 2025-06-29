@@ -122,5 +122,10 @@ namespace ContactsBusinessLayer
         {
             return clsContactDataAccess.getAllContacts();
         }
+
+        public static bool isContactExist(int ID)
+        {
+            return clsContactDataAccess.isContactExist(ID);
+        }
     }
 }

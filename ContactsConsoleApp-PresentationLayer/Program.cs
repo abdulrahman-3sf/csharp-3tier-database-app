@@ -89,6 +89,14 @@ namespace ContactsConsoleApp_PresentationLayer
                 Console.WriteLine($"{row["contactID"]}, {row["firstName"]}");
             }
         }
+
+        static void isContactExist(int ID)
+        {
+            if (clsContact.isContactExist(ID))
+                Console.WriteLine("EXIST!");
+            else
+                Console.WriteLine("NOT EXIST!");
+        }
         
         static void Main(string[] args)
         {
@@ -96,7 +104,8 @@ namespace ContactsConsoleApp_PresentationLayer
             // testAddNewContact();
             // testUpdateContact(15);
             // testDeleteContact(17);
-            listContacts();
+            // listContacts();
+            isContactExist(8);
         }
     }
 }
