@@ -115,7 +115,10 @@ namespace ContactsBusinessLayer
 
         public static bool deleteContact(int ID)
         {
-            return clsContactDataAccess.deleteContact(ID);
+            if (isContactExist(ID))
+                return clsContactDataAccess.deleteContact(ID);
+            else
+                return false;
         }
 
         public static DataTable getAllContacts()

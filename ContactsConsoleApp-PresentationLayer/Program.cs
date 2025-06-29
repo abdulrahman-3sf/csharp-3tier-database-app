@@ -105,7 +105,7 @@ namespace ContactsConsoleApp_PresentationLayer
             // testUpdateContact(15);
             // testDeleteContact(17);
             // listContacts();
-            isContactExist(8);
+            // isContactExist(8);
         }
     }
 }
