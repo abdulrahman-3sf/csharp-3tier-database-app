@@ -112,5 +112,10 @@ namespace ContactsBusinessLayer
                     return true;
             }
         }
+
+        public static bool deleteContact(int ID)
+        {
+            return clsContactDataAccess.deleteContact(ID);
+        }
     }
 }

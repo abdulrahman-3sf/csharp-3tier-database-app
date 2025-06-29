@@ -72,11 +72,20 @@ namespace ContactsConsoleApp_PresentationLayer
             
         }
 
+        static void testDeleteContact(int ID)
+        {
+            if (clsContact.deleteContact(ID))
+                Console.WriteLine("Contact Deleted SUCCESSFULLY!");
+            else
+                Console.WriteLine("Faild to Delete Contact!");
+        }
+        
         static void Main(string[] args)
         {
             // testFindContact(4);
-            //testAddNewContact();
-            testUpdateContact(15);
+            // testAddNewContact();
+            // testUpdateContact(15);
+            testDeleteContact(17);
         }
     }
 }
