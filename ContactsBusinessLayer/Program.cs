@@ -68,15 +68,18 @@ namespace ContactsBusinessLayer
         {
             stContactInfoWithoutID contactInfo = convertContactClassToStruct(this);
 
+            // I pass it ref even when it read it only, to pass data faster
             ID = clsContactDataAccess.addNewContact(ref contactInfo);
 
             return (ID != -1);
         }
 
-        //private bool _update()
-        //{
-        //    return true;
-        //}
+        private bool _update()
+        {
+            stContactInfoWithoutID contactInfo = convertContactClassToStruct(this);
+
+            return clsContactDataAccess.updateContact(ID, ref contactInfo);
+        }
 
         public static clsContact find(int ID)
         {
@@ -102,8 +105,8 @@ namespace ContactsBusinessLayer
                         return false;
                     }
 
-                //case enMode.update:
-                //    return _update();
+                case enMode.update:
+                    return _update();
 
                 default:
                     return true;

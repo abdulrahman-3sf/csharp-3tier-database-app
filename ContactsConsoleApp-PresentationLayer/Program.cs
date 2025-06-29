@@ -46,10 +46,37 @@ namespace ContactsConsoleApp_PresentationLayer
             }
         }
 
+        static void testUpdateContact(int ID)
+        {
+            clsContact contact1 = clsContact.find(ID);
+
+            if (contact1 != null)
+            {
+                contact1.firstName = "Sultan";
+                contact1.lastName = "Ahmed";
+                contact1.email = "SultanA@gmail.com";
+                contact1.phone = "54545455454";
+                contact1.address = "399 Streat 22";
+                contact1.dateOfBirth = new DateTime(1999, 1, 1, 0, 0, 0);
+                contact1.countryID = 2;
+                contact1.imagePath = "";
+
+                if (contact1.save())
+                {
+                    Console.WriteLine("Contact Updated SUCCESSFULLY!");
+                }
+            } else
+            {
+                Console.Write("NULL Contact Object!");
+            }
+            
+        }
+
         static void Main(string[] args)
         {
             // testFindContact(4);
-            testAddNewContact();
+            //testAddNewContact();
+            testUpdateContact(15);
         }
     }
 }

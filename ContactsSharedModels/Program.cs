@@ -13,5 +13,4 @@ namespace ContactsSharedModels
         public int countryID { get; set; }
         public string imagePath { get; set; }
     }
-
 }
