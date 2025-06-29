@@ -117,5 +117,10 @@ namespace ContactsBusinessLayer
         {
             return clsContactDataAccess.deleteContact(ID);
         }
+
+        public static DataTable getAllContacts()
+        {
+            return clsContactDataAccess.getAllContacts();
+        }
     }
 }

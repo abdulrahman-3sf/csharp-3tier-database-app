@@ -3,6 +3,7 @@ using System.Data;
 using System.Data.SqlClient;
 using ContactsSharedModels;
 using System.Runtime.Remoting.Messaging;
+using System.Diagnostics;
 
 
 namespace ContactsDataAccessLayer
@@ -180,6 +181,38 @@ namespace ContactsDataAccessLayer
             }
 
             return (rowsAffected > 0);
+        }
+
+        public static DataTable getAllContacts()
+        {
+            DataTable dt = new DataTable();
+
+            SqlConnection connection = new SqlConnection(connectionString);
+
+            string query = "select * from contacts";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    dt.Load(reader);
+                }
+            }
+            catch (Exception ex)
+            {
+                // Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return dt;
         }
     }
 }

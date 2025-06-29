@@ -79,13 +79,24 @@ namespace ContactsConsoleApp_PresentationLayer
             else
                 Console.WriteLine("Faild to Delete Contact!");
         }
+
+        static void listContacts()
+        {
+            DataTable dataTable = clsContact.getAllContacts();
+
+            foreach(DataRow row in dataTable.Rows)
+            {
+                Console.WriteLine($"{row["contactID"]}, {row["firstName"]}");
+            }
+        }
         
         static void Main(string[] args)
         {
             // testFindContact(4);
             // testAddNewContact();
             // testUpdateContact(15);
-            testDeleteContact(17);
+            // testDeleteContact(17);
+            listContacts();
         }
     }
 }
