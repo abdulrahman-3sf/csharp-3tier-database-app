@@ -138,6 +138,15 @@ namespace ContactsConsoleApp_PresentationLayer
             }
         }
 
+        // If I remove country that exist in at least one contact it will give us error.
+        static void testDeleteCountry(int ID)
+        {
+            if (clsCountry.deleteCountry(ID))
+                Console.WriteLine("Country Deleted SUCCESSFULLY!");
+            else
+                Console.WriteLine("Faild to Delete Country!");
+        }
+
         static void Main(string[] args)
         {
             // Contact
@@ -151,7 +160,8 @@ namespace ContactsConsoleApp_PresentationLayer
             // Country
             // testFindCountry(44);
             // testAddCountry();
-            testUpdateCountry(3);
+            // testUpdateCountry(3);
+            testDeleteCountry(5);
         }
     }
 }
