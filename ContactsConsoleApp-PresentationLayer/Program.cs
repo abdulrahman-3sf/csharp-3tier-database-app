@@ -6,6 +6,7 @@ namespace ContactsConsoleApp_PresentationLayer
 {
     internal class Program
     {
+        // Contact
         static void testFindContact(int ID)
         {
             clsContact contact1 = clsContact.find(ID);
@@ -97,15 +98,32 @@ namespace ContactsConsoleApp_PresentationLayer
             else
                 Console.WriteLine("NOT EXIST!");
         }
-        
+
+
+        // Countries
+        static void testFindCountry(int ID)
+        {
+            clsCountry country1 = clsCountry.find(ID);
+
+            if (country1 != null)
+                Console.WriteLine(country1.countryName);
+            else
+                Console.WriteLine("NULL OBJECT");
+        }
+
+
         static void Main(string[] args)
         {
+            // Contact
             // testFindContact(4);
             // testAddNewContact();
             // testUpdateContact(15);
             // testDeleteContact(17);
             // listContacts();
             // isContactExist(8);
+
+            // Country
+            testFindCountry(44);
         }
     }
 }
