@@ -9,19 +9,24 @@ namespace ContactsBusinessLayer
 {
     public class clsCountry
     {
-        public int countryID { get; set; }
+        public enum enMode { addNew=0, update=1 };
+
+        public int ID { get; set; }
         public string countryName { get; set; }
+        public enMode mode = enMode.addNew;
 
         public clsCountry()
         {
-            countryID = -1;
+            ID = -1;
             countryName = "";
+            mode = enMode.addNew;
         }
 
         private clsCountry(int ID, string countryName)
         {
-            this.countryID = countryID;
+            this.ID = ID;
             this.countryName = countryName;
+            mode = enMode.update;
         }
 
         public static clsCountry find(int ID)
@@ -32,6 +37,40 @@ namespace ContactsBusinessLayer
                 return new clsCountry(ID, countryName);
             else
                 return null;
+        }
+
+        private bool _addNewCountry()
+        {
+            ID = clsCountryDataAccess.addNewCountry(countryName);
+
+            return (ID != -1);
+        }
+
+        //private bool _updateCountry()
+        //{
+        //    return true;
+        //}
+
+        public bool save()
+        {
+            switch (mode)
+            {
+                case enMode.addNew:
+                    if (_addNewCountry())
+                    {
+                        mode = enMode.update;
+                        return true;
+                    } else
+                    {
+                        return false;
+                    }
+
+                //case enMode.update:
+                //    return _updateCountry();
+
+                default:
+                    return false;
+            }
         }
     }
 }

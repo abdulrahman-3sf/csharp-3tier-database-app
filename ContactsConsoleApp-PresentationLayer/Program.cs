@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Diagnostics.Contracts;
 using ContactsBusinessLayer;
 
 namespace ContactsConsoleApp_PresentationLayer
@@ -111,6 +112,15 @@ namespace ContactsConsoleApp_PresentationLayer
                 Console.WriteLine("NULL OBJECT");
         }
 
+        static void testAddCountry()
+        {
+            clsCountry country = new clsCountry();
+
+            country.countryName = "Saudi Arabia";
+
+            if (country.save())
+                Console.WriteLine("Contact Added SUCCESSFULLY! with ID: " + country.ID);
+        }
 
         static void Main(string[] args)
         {
@@ -123,7 +133,8 @@ namespace ContactsConsoleApp_PresentationLayer
             // isContactExist(8);
 
             // Country
-            testFindCountry(44);
+            // testFindCountry(44);
+            testAddCountry();
         }
     }
 }
