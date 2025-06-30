@@ -83,5 +83,10 @@ namespace ContactsBusinessLayer
         {
             return clsCountryDataAccess.getAllCountries();
         }
+
+        public static bool isCountryExist(int ID)
+        {
+            return clsCountryDataAccess.isCountryExist(ID);
+        }
     }
 }

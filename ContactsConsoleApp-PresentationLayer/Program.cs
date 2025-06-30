@@ -157,6 +157,14 @@ namespace ContactsConsoleApp_PresentationLayer
             }
         }
 
+        static void isCountryExist(int ID)
+        {
+            if (clsCountry.isCountryExist(ID))
+                Console.WriteLine("EXIST!");
+            else
+                Console.WriteLine("NOT EXIST!");
+        }
+
         static void Main(string[] args)
         {
             // Contact
@@ -172,7 +180,8 @@ namespace ContactsConsoleApp_PresentationLayer
             // testAddCountry();
             // testUpdateCountry(3);
             // testDeleteCountry(5);
-            listCountryes();
+            // listCountryes();
+            isCountryExist(5);
         }
     }
 }
