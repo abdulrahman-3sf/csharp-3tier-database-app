@@ -237,5 +237,37 @@ namespace ContactsDataAccessLayer
 
             return isExist;
         }
+
+        public static bool isCountryExistByName(string countryName)
+        {
+            bool isExist = false;
+
+            SqlConnection connection = new SqlConnection(connectionString);
+
+            string query = "select found=1 from Countries where countryName = @countryName";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@countryName", countryName);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                isExist = reader.HasRows;
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                // Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return isExist;
+        }
     }
 }

@@ -101,5 +101,10 @@ namespace ContactsBusinessLayer
         {
             return clsCountryDataAccess.isCountryExist(ID);
         }
+
+        public static bool isCountryExistByName(string countryName)
+        {
+            return clsCountryDataAccess.isCountryExistByName(countryName);
+        }
     }
 }

@@ -175,6 +175,14 @@ namespace ContactsConsoleApp_PresentationLayer
                 Console.WriteLine("NOT EXIST!");
         }
 
+        static void isCountryExistByName(string countryName)
+        {
+            if (clsCountry.isCountryExistByName(countryName))
+                Console.WriteLine("EXIST!");
+            else
+                Console.WriteLine("NOT EXIST!");
+        }
+
 
         static void Main(string[] args)
         {
@@ -193,7 +201,8 @@ namespace ContactsConsoleApp_PresentationLayer
             // testDeleteCountry(5);
             // listCountryes();
             // isCountryExist(5);
-            testFindCountryByName("UK");
+            // testFindCountryByName("UK");
+            isCountryExistByName("Saudi Arabia");
         }
     }
 }
