@@ -76,7 +76,10 @@ namespace ContactsBusinessLayer
 
         public static bool deleteCountry(int ID)
         {
-            return clsCountryDataAccess.deleteCountry(ID);
+            if (isCountryExist(ID))
+                return clsCountryDataAccess.deleteCountry(ID);
+            else
+                return false;
         }
 
         public static DataTable getAllCountries()

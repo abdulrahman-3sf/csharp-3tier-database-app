@@ -181,7 +181,7 @@ namespace ContactsConsoleApp_PresentationLayer
             // testUpdateCountry(3);
             // testDeleteCountry(5);
             // listCountryes();
-            isCountryExist(5);
+            // isCountryExist(5);
         }
     }
 }
