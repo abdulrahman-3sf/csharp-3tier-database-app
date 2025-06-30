@@ -40,6 +40,16 @@ namespace ContactsBusinessLayer
                 return null;
         }
 
+        public static clsCountry find(string countryName)
+        {
+            int ID = 0;
+
+            if (clsCountryDataAccess.find(ref ID, countryName))
+                return new clsCountry(ID, countryName);
+            else
+                return null;
+        }
+
         private bool _addNewCountry()
         {
             ID = clsCountryDataAccess.addNewCountry(countryName);

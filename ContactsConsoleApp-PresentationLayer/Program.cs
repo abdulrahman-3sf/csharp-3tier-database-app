@@ -112,6 +112,16 @@ namespace ContactsConsoleApp_PresentationLayer
                 Console.WriteLine("NULL OBJECT");
         }
 
+        static void testFindCountryByName(string countryName)
+        {
+            clsCountry country = clsCountry.find(countryName);
+
+            if (country != null)
+                Console.WriteLine(country.ID + " " + country.countryName);
+            else
+                Console.WriteLine("NULL OBJECT");
+        }
+
         static void testAddCountry()
         {
             clsCountry country = new clsCountry();
@@ -165,6 +175,7 @@ namespace ContactsConsoleApp_PresentationLayer
                 Console.WriteLine("NOT EXIST!");
         }
 
+
         static void Main(string[] args)
         {
             // Contact
@@ -182,6 +193,7 @@ namespace ContactsConsoleApp_PresentationLayer
             // testDeleteCountry(5);
             // listCountryes();
             // isCountryExist(5);
+            testFindCountryByName("UK");
         }
     }
 }
