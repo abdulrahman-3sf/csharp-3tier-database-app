@@ -1,6 +1,7 @@
 ﻿using ContactsDataAccessLayer;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -76,6 +77,11 @@ namespace ContactsBusinessLayer
         public static bool deleteCountry(int ID)
         {
             return clsCountryDataAccess.deleteCountry(ID);
+        }
+
+        public static DataTable getAllCountries()
+        {
+            return clsCountryDataAccess.getAllCountries();
         }
     }
 }

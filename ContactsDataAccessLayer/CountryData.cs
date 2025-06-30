@@ -137,5 +137,37 @@ namespace ContactsDataAccessLayer
 
             return (rowsAffected > 0);
         }
+
+        public static DataTable getAllCountries()
+        {
+            DataTable dt = new DataTable();
+
+            SqlConnection connection = new SqlConnection(connectionString);
+
+            string query = "select * from Countries";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                    dt.Load(reader);
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                // Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return dt;
+        }
     }
 }

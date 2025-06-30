@@ -147,6 +147,16 @@ namespace ContactsConsoleApp_PresentationLayer
                 Console.WriteLine("Faild to Delete Country!");
         }
 
+        static void listCountryes()
+        {
+            DataTable dataTable = clsCountry.getAllCountries();
+
+            foreach(DataRow row in dataTable.Rows)
+            {
+                Console.WriteLine($"{row["countryID"]}, {row["countryName"]}");
+            }
+        }
+
         static void Main(string[] args)
         {
             // Contact
@@ -161,7 +171,8 @@ namespace ContactsConsoleApp_PresentationLayer
             // testFindCountry(44);
             // testAddCountry();
             // testUpdateCountry(3);
-            testDeleteCountry(5);
+            // testDeleteCountry(5);
+            listCountryes();
         }
     }
 }
