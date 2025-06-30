@@ -107,7 +107,12 @@ namespace ContactsConsoleApp_PresentationLayer
             clsCountry country1 = clsCountry.find(ID);
 
             if (country1 != null)
+            {
                 Console.WriteLine(country1.countryName);
+                Console.WriteLine(country1.code);
+                Console.WriteLine(country1.phoneCode);
+            }
+                
             else
                 Console.WriteLine("NULL OBJECT");
         }
@@ -117,7 +122,7 @@ namespace ContactsConsoleApp_PresentationLayer
             clsCountry country = clsCountry.find(countryName);
 
             if (country != null)
-                Console.WriteLine(country.ID + " " + country.countryName);
+                Console.WriteLine(country.ID + " " + country.countryName + " " + country.code + " " + country.phoneCode);
             else
                 Console.WriteLine("NULL OBJECT");
         }
@@ -126,7 +131,9 @@ namespace ContactsConsoleApp_PresentationLayer
         {
             clsCountry country = new clsCountry();
 
-            country.countryName = "Saudi Arabia";
+            country.countryName = "Iraq";
+            country.code = "123";
+            country.phoneCode = "312124321";
 
             if (country.save())
                 Console.WriteLine("Country Added SUCCESSFULLY! with ID: " + country.ID);
@@ -139,6 +146,8 @@ namespace ContactsConsoleApp_PresentationLayer
             if (country != null)
             {
                 country.countryName = "Syria";
+                country.code = "123";
+                country.phoneCode = "312124321";
 
                 if (country.save())
                     Console.WriteLine("Contact Updated SUCCESSFULLY! with ID: " + country.ID);
@@ -163,7 +172,7 @@ namespace ContactsConsoleApp_PresentationLayer
 
             foreach(DataRow row in dataTable.Rows)
             {
-                Console.WriteLine($"{row["countryID"]}, {row["countryName"]}");
+                Console.WriteLine($"{row["countryID"]}, {row["countryName"]}, {row["code"]}, {row["phoneCode"]}");
             }
         }
 
@@ -202,7 +211,7 @@ namespace ContactsConsoleApp_PresentationLayer
             // listCountryes();
             // isCountryExist(5);
             // testFindCountryByName("UK");
-            isCountryExistByName("Saudi Arabia");
+            // isCountryExistByName("Saudi Arabia");
         }
     }
 }
